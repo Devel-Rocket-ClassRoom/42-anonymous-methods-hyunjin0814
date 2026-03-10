@@ -10,17 +10,22 @@ dataProcessor.ForEach(delegate (int x) { Console.Write($"{x} "); });
 Console.WriteLine();
 
 Console.WriteLine("\n=== 2배로 변환 ===");
-int[] two = dataProcessor.Transform(delegate (int x) { return x * 2; });
-foreach (int x in two)
+int[] twoMultiply = dataProcessor.Transform(delegate (int x) { return x * 2; });
+foreach (int x in twoMultiply)
 {
     Console.Write($"{x} ");
 }
 Console.WriteLine();
 
 Console.WriteLine("\n=== 짝수만 필터링 ===");
-
+List<int> evens = dataProcessor.Filter(delegate (int x) { return x % 2 == 0; });
+foreach (int x in twoMultiply)
+{
+    Console.Write($"{x} ");
+}
 Console.WriteLine();
 
 Console.WriteLine("\n=== 합계 계산 ===");
-
+int sum = dataProcessor.Reduce(delegate (int x, int y) {return x + y;}, 0);
+Console.WriteLine($"합계: {sum}");
 Console.WriteLine();

@@ -38,11 +38,11 @@ class DataProcessor
 
     public int Reduce(Func<int, int, int> reducer, int initialValue)
     {
-        int reduce = 0;
+        int sum = initialValue;
         foreach (int num in nums)
         {
-            reduce = reducer(num, initialValue);
+            sum = reducer(sum, num);
         }
-        return reduce;
+        return sum;
     }
 }
